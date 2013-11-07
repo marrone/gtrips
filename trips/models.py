@@ -17,4 +17,4 @@ class TripDeparture(models.Model):
     start_date = models.DateTimeField()
 
     def __unicode__(self):
-        return "{0} -> {1}".format(self.trip.name, self.start_date)
+        return "{0} / {1}".format(self.trip.name, self.start_date.strftime("%b %d %Y"))

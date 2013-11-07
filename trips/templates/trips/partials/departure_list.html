@@ -3,25 +3,26 @@
     <thead>
         <tr>
             <th>Start Date</th>
-            <th>Trip</th>
+            {% if not hide_trip %}
+                <th>Trip</th>
+            {% endif %}
             <th></th>
         </tr>
     </thead>
     <tbody>
     {% for dep in departure_list %}
         <tr>
-            <td>{{ dep.start_date }}</td>
-            <td>{{ dep.trip.name }}</td>
+            <td>{{ dep.start_date|date:"D, N j, Y" }}</td>
+            {% if not hide_trip %}
+                <td><a href="{% url 'trips:trip_detail' dep.trip.id %}">{{ dep.trip.name }}</a></td>
+            {% endif %}
             <td>
                 <div class="topcoat-button-bar">
-                    <div class="topcoat-button-bar__item">
-                        <a class="topcoat-button-bar__button" href="{% url 'trips:departure_detail' dep.id %}">View</a>
-                    </div>
                     <div class="topcoat-button-bar__item">
                         <a class="topcoat-button-bar__button" href="#">Edit</a>
                     </div>
                     <div class="topcoat-button-bar__item">
-                        <a class="topcoat-button-bar__button" href="#">Delete</a>
+                        <a class="topcoat-button-bar__button" href="{% url 'trips:departure_delete' dep.id %}">Delete</a>
                     </div>
                 </div>
             </td>

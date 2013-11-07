@@ -1,0 +1,18 @@
+{% extends "base_trips.html" %}
+
+{% block title %}{{ block.super }} | Delete Departure {{ tripdeparture }}{% endblock %}
+{% block contenttitle %}Delete Departure <em>{{ tripdeparture }}</em>?{% endblock %}
+
+{% block content %}
+<form method="post" action="{% url 'trips:departure_delete' tripdeparture.id %}">
+{% csrf_token %}
+<div class="formfield">
+    <p>Really delete departure <strong><em>{{ tripdeparture }}</em></strong>?</p>
+</div>
+<div class="formfield">
+    <button type="submit" class="topcoat-button--large">Delete</button>
+    <span class="topcoat-notification">Warning:</span> This cannot be undone!
+    <a href="{% url 'trips:trip_detail' tripdeparture.trip.id %}">Cancel</a>
+</div>
+</form>
+{% endblock content %}

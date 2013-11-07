@@ -1,18 +1,18 @@
 {% extends "base_trips.html" %}
 
 {% block title %}{{ block.super }} | Delete {{ trip.name }}{% endblock %}
-{% block contenttitle %}Delete {{ trip.name }}?{% endblock %}
+{% block contenttitle %}Delete <em>{{ trip.name }}</em>?{% endblock %}
 
 {% block content %}
 <form method="post" action="{% url 'trips:trip_delete' trip.id %}">
 {% csrf_token %}
 <div class="formfield">
-    <p>Really delete <strong>{{ trip.name }}</strong>?</p>
+    <p>Really delete <strong><em>{{ trip.name }}</em></strong>?</p>
 </div>
 <div class="formfield">
     <button type="submit" class="topcoat-button--large">Delete</button>
     <span class="topcoat-notification">Warning:</span> This cannot be undone!
-    <a href="{% url 'trips:index' %}">Cancel</a>
+    <a href="{% url 'trips:trip_detail' trip.id %}">Cancel</a>
 </div>
 </form>
 {% endblock content %}

@@ -5,7 +5,7 @@
 
 {% block content %}
 {% if departure_list %}
-    {% include "trips/partials/departure_list.html" with departure_list=departure_list only %}
+    {% include "trips/partials/departure_list.html" with departure_list=departure_list hide_trip=False only %}
 {% else %}
     <p>No departures exist. Try <a href="{% url 'trips:departure_create' %}">creating one</a> now.</p>
 {% endif %}
