@@ -1,0 +1,28 @@
+{% extends "base_trips.html" %}
+
+{% block title %}{{ block.super }} | Trips{% endblock %}
+
+{% block content %}
+{% if trip_list %}
+    <table class='trips'>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th># Departures</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for trip in trip_list %}
+        <tr>
+            <td>{{ trip.name }}</td>
+            <td>{{ trip.tripdeparture_set.count }}</td>
+            <td>View, Edit, Delete</td>    
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% else %}
+    <p>No trips exist. Try <a href="{% url 'trips:trip_create' %}">creating one</a> now.</p>
+{% endif %}
+{% endblock content %}

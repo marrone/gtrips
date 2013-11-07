@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Trip Admin{% endblock %}
+
+{% block nav %}
+<ul>
+    <li><a href="{% url 'trips:index' %}">Trips</a></li>
+    <li><a href="{% url 'trips:departures' %}">Departures</a></li>
+</ul>
+{% endblock %}

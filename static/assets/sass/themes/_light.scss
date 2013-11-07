@@ -1,0 +1,42 @@
+/* http://www.colourlovers.com/palette/418592/BazzleBazzle */
+$color-whenyouare: #13131F;
+$color-chinchilla: #2E2331;
+$color-avenged: #02020E;
+$color-parieswinkle: #86AECC;
+$color-parieslight: #D4E4EF;
+$color-kennycrath: #262630;
+$color-backface: #F4F4F4;
+
+body {
+    background-color: $color-backface;
+    color: #181919;
+}
+
+#app {
+  background: $color-backface;
+}
+
+
+#header { 
+  background-color: $color-parieswinkle;
+  @include filter-gradient($color-parieswinkle, $color-parieslight, vertical);
+  @include background-image(linear-gradient( top, $color-parieswinkle 0%, $color-parieslight 100%));
+}
+
+#header > h1 {
+    position: absolute;
+    left: -9999px;
+}
+
+#main {
+  background-color: $color-backface;
+}
+#sidebar {
+  background: red;
+}
+
+#footer {
+  background-color: $color-parieslight;
+  @include filter-gradient($color-parieslight, $color-parieswinkle, vertical);
+  @include background-image(linear-gradient( top, $color-parieslight 0%, $color-parieswinkle 100%));
+}

@@ -1,0 +1,10 @@
+# Ignore vim swaps
+*.swp
+*.swo
+
+# app files
+.sass-cache
+node_modules
+
+# CTags
+tags

@@ -1,0 +1,33 @@
+/* tables */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1em;
+	border: 0;
+}
+table caption {
+	height: 0;
+	visibility: hidden;
+	font-size: 0;
+	overflow: hidden;
+}
+table th {
+	font-size: 85%;
+	font-weight: bold;
+  background-color: whitesmoke;
+}
+table tbody th {
+	color: #292929;
+	font-weight: bold;
+	font-size: 100%;
+}
+table td, table th {
+	padding: 3px;
+}
+table tbody tr {
+	border: 0;
+	border-top: 1px solid #EAEAEA;
+	border-bottom: 1px solid #EAEAEA;
+}
+table tbody tr td, table tr th { *border-bottom: 1px solid #EAEAEA; }
+tr:nth-child(odd) {background-color:#FAFAFA;}

@@ -1,0 +1,18 @@
+.ui-label {
+  font-family: 'Source Sans';
+  font-size: 22px;
+  color: $color-chinchilla;
+}
+
+.ui-label-small {
+    font-size: 12px;
+}
+
+@media #{$bp-large} {
+    .ui-label {
+        font-size: 44px;
+    }
+    .ui-label-small {
+        font-size: 16px;
+    }
+}
