@@ -17,5 +17,6 @@ urlpatterns = patterns("",
     # departures/create/, delete
     url(r'^departures/create/$', views.DepartureCreateView.as_view(), name='departure_create'),
     url(r'^(?P<trip>\d+)/departures/create/$', views.DepartureCreateView.as_view(), name='departure_create'),
+    url(r'^/departures/(?P<pk>\d+)/edit/$', views.DepartureUpdateView.as_view(), name='departure_update'),
     url(r'^departures/(?P<pk>\d+)/delete$', views.DepartureDeleteView.as_view(), name='departure_delete'),
 )

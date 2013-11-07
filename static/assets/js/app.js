@@ -1,5 +1,5 @@
 var app = app || {};
 
 $(function() {
-    $(".date-picker").datepicker();
+    $(".date-picker").datepicker(); //({dateFormat: "D, M d, yy"});
 });

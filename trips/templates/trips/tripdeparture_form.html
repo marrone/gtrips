@@ -9,7 +9,11 @@
 {% endblock %}
 
 {% block content %}
+{% if tripdeparture and tripdeparture.id %}
+<form method="post" action="{% url 'trips:departure_update' tripdeparture.id %}">
+{% else %}
 <form method="post" action="{% url 'trips:departure_create' %}">
+{% endif %}
 {% csrf_token %}
 {{ form.non_field_errors }}
 <div class="formfield">
@@ -18,7 +22,7 @@
 </div>
 <div class="formfield">
     <label for="id_start_date">Start Date:</label>
-    <input type='text' id="id_start_date" class="topcoat-text-input--large date-picker {% if form.start_date.errors %}invalid{% endif %}" name="{{ form.start_date.html_name }}" value="{{ form.start_date.value|default:"" }}" placeholder="dd/mm/yy"/>
+    <input type='text' id="id_start_date" class="topcoat-text-input--large date-picker {% if form.start_date.errors %}invalid{% endif %}" name="{{ form.start_date.html_name }}" value="{{ form.start_date.value|date:"D, N j, Y"|default:"" }}" placeholder="mm/dd/yy"/>
     {% if form.start_date.errors %}
     <div class="topcoat-notification">
         {{ form.start_date.errors }}
@@ -29,12 +33,16 @@
         <input type="hidden" name="{{ form.id.html_name }}" value="{{ form.id.value }}"/>
     {% endif %}
     <button class="topcoat-button--large--cta" type="submit">
-        {% if trip and trip.id %} Update {% else %} Create {% endif %}
+        {% if tripdeparture and tripdeparture.id %} Update {% else %} Create {% endif %}
     </button>
     {% if form.name.errors %}
     <div class="topcoat-notification">
         {{ form.name.errors }}
     </div>
+    {% endif %}
+
+    {% if tripdeparture and tripdeparture.id %}
+        <input type="hidden" name="id" value="{{ tripdeparture.id }}" />
     {% endif %}
 </div>
 

@@ -19,7 +19,7 @@
             <td>
                 <div class="topcoat-button-bar">
                     <div class="topcoat-button-bar__item">
-                        <a class="topcoat-button-bar__button" href="#">Edit</a>
+                        <a class="topcoat-button-bar__button" href="{% url 'trips:departure_update' dep.id %}">Edit</a>
                     </div>
                     <div class="topcoat-button-bar__item">
                         <a class="topcoat-button-bar__button" href="{% url 'trips:departure_delete' dep.id %}">Delete</a>

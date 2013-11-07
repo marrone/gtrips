@@ -16,5 +16,8 @@ class TripDeparture(models.Model):
     trip = models.ForeignKey(Trip)
     start_date = models.DateTimeField()
 
+    class Meta:
+        ordering = ['start_date']
+
     def __unicode__(self):
         return "{0} / {1}".format(self.trip.name, self.start_date.strftime("%b %d %Y"))

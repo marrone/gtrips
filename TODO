@@ -9,3 +9,7 @@
 - sortable departures
     - date, trip name
 - filtering departures
+
+Trips
+    - create
+    - update

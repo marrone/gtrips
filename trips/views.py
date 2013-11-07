@@ -46,6 +46,14 @@ class DepartureCreateView(generic.edit.CreateView):
         return reverse_lazy("trips:trip_detail", args=(self.object.trip.id,))
 
 
+class DepartureUpdateView(generic.edit.UpdateView):
+    form_class = TripDepartureForm
+    model = TripDeparture
+
+    def get_success_url(self):
+        return reverse_lazy("trips:trip_detail", args=(self.object.trip.id,))
+
+
 class DepartureDetailView(generic.DetailView):
     model = TripDeparture
     template_name = 'trips/departure_detail.html'
@@ -53,7 +61,9 @@ class DepartureDetailView(generic.DetailView):
 
 class DepartureDeleteView(generic.edit.DeleteView):
     model = TripDeparture
-    success_url = reverse_lazy("trips:departures")
+
+    def get_success_url(self):
+        return reverse_lazy("trips:trip_detail", args=(self.object.trip.id,))
 
 
 class DeparturesView(generic.ListView):
