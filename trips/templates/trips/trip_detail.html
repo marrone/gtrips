@@ -17,13 +17,7 @@
 <form method="post" action="{% url 'trips:departure_create' %}">
 {% csrf_token %}
 <div class="formfield">
-    <input type='text' 
-        id="id_start_date" 
-        class="topcoat-text-input--large date-picker {% if form.start_date.errors %}invalid{% endif %}" 
-        name="start_date"
-        value="{{ form.start_date.value|default:"" }}" 
-        placeholder="mm/dd/yy"/>
-
+    {% include "trips/partials/departure_start_date_field.html" with start_date="" only %}
     <input type="hidden" name="trip" value="{{ trip.id }}"/>
     <button class="topcoat-button--large--cta" type="submit">Create Departure</button>
 </div>

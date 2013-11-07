@@ -1,0 +1,12 @@
+<input type='text' 
+    id="id_start_date" 
+    class="topcoat-text-input--large date-picker {% if errors %}invalid{% endif %}" 
+    name="start_date"
+    value="{{ start_date|date:"m/d/y"|default:"" }}" 
+    placeholder="mm/dd/yy"/>
+
+{% if errors %}
+<div class="topcoat-notification">
+    {{ errors }}
+</div>
+{% endif %}
