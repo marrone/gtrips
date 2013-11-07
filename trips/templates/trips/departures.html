@@ -1,27 +1,11 @@
 {% extends "base_trips.html" %}
 
 {% block title %}{{ block.super }} | Departures{% endblock %}
+{% block contenttitle %}Departures{% endblock %}
 
 {% block content %}
 {% if departure_list %}
-    <table class='departures'>
-    <thead>
-        <tr>
-            <th>Start Date</th>
-            <th>Trip</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for dep in departure_list %}
-        <tr>
-            <td>{{ dep.start_date }}</td>
-            <td>{{ dep.trip.name }}</td>
-            <td>View, Edit, Delete</td>    
-        </tr>
-    {% endfor %}
-    </tbody>
-    </table>
+    {% include "trips/partials/departure_list.html" with departure_list=departure_list only %}
 {% else %}
     <p>No departures exist. Try <a href="{% url 'trips:departure_create' %}">creating one</a> now.</p>
 {% endif %}

@@ -1,0 +1,32 @@
+{% if departure_list %}
+    <table class='departures'>
+    <thead>
+        <tr>
+            <th>Start Date</th>
+            <th>Trip</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for dep in departure_list %}
+        <tr>
+            <td>{{ dep.start_date }}</td>
+            <td>{{ dep.trip.name }}</td>
+            <td>
+                <div class="topcoat-button-bar">
+                    <div class="topcoat-button-bar__item">
+                        <a class="topcoat-button-bar__button" href="{% url 'trips:departure_detail' dep.id %}">View</a>
+                    </div>
+                    <div class="topcoat-button-bar__item">
+                        <a class="topcoat-button-bar__button" href="#">Edit</a>
+                    </div>
+                    <div class="topcoat-button-bar__item">
+                        <a class="topcoat-button-bar__button" href="#">Delete</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  {% endif %}

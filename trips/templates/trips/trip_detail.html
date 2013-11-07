@@ -1,9 +1,15 @@
 {% extends "base_trips.html" %}
 
 {% block title %}{{ block.super }} | {{ trip.name }}{% endblock %}
+{% block contenttitle %}{{ trip.name }}{% endblock %}
 
 {% block content %}
 <h1>{{ trip.name }}</h1>
+
 <h2>Departures</h2>
-TODO
+{% if trip.tripdeparture_set.all %}
+    {% include "trips/partials/departure_list.html" with departure_list=trip.tripdeparture_set.all only %}
+{% else %}
+    <p>This trip has no departures yet. Try <a href="{% url 'trips:departure_create' trip.id %}">creating one</a> now.</p>
+{% endif %}
 {% endblock content %}
