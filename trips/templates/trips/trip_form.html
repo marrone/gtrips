@@ -5,28 +5,34 @@
     {% if trip %}Edit {{ trip.name }}{% else %}Create Trip{% endif %}
 {% endblock %}
 {% block contenttitle %}
-    {% if trip %}Edit {{ trip.name }}{% else %}Create Trip{% endif %}
+    {% if trip %}Edit <em>{{ trip.name }}</em>{% else %}Create Trip{% endif %}
 {% endblock %}
 
 {% block content %}
-<form method="post" action="{% url 'trips:trip_create' %}">
-{% csrf_token %}
-{{ form.non_field_errors }}
-<div>
-    <label for="id_name">Name:</label>
-    <input type='text' id="id_name" class="topcoat-text-input--large {% if form.name.errors %}invalid{% endif %}" name="{{ form.name.html_name }}" value="{{ form.name.value|default:"" }}" />
-
     {% if trip and trip.id %}
-        <input type="hidden" name="{{ form.id.html_name }}" value="{{ form.id.value }}"/>
+        <form method="post" action="{% url 'trips:trip_update' trip.id %}">
+    {% else %}
+        <form method="post" action="{% url 'trips:trip_create' %}">
     {% endif %}
-    <button class="topcoat-button--large--cta" type="submit">
-        {% if trip and trip.id %} Update {% else %} Create {% endif %}
-    </button>
-    {% if form.name.errors %}
-    <div class="topcoat-notification">
-        {{ form.name.errors }}
+
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+    <div>
+        <label for="id_name">Name:</label>
+        <input type='text' id="id_name" class="topcoat-text-input--large {% if form.name.errors %}invalid{% endif %}" name="{{ form.name.html_name }}" value="{{ form.name.value|default:"" }}" />
+
+        {% if trip and trip.id %}
+            <input type="hidden" name="id" value="{{ trip.id }}"/>
+        {% endif %}
+        <button class="topcoat-button--large--cta" type="submit">
+            {% if trip and trip.id %} Update {% else %} Create {% endif %}
+        </button>
+        {% if form.name.errors %}
+        <div class="topcoat-notification">
+            {{ form.name.errors }}
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
-</div>
-</form>
+    </form>
 {% endblock content %}
