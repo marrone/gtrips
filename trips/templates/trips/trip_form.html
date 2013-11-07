@@ -2,10 +2,10 @@
 
 {% block title %}
     {{ block.super }} | 
-    {% if trip %}Edit {{ trip.name }}{% else %}New{% endif %}
+    {% if trip %}Edit {{ trip.name }}{% else %}Create Trip{% endif %}
 {% endblock %}
 {% block contenttitle %}
-    {% if trip %}Edit {{ trip.name }}{% else %}New Trip{% endif %}
+    {% if trip %}Edit {{ trip.name }}{% else %}Create Trip{% endif %}
 {% endblock %}
 
 {% block content %}

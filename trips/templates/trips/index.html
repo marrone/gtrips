@@ -1,7 +1,10 @@
 {% extends "base_trips.html" %}
 
 {% block title %}{{ block.super }} | Trips{% endblock %}
-{% block contenttitle %}Trips{% endblock %}
+{% block contenttitle %}
+    Trips
+    <a class="topcoat-button contenttitle-action" href="{% url 'trips:trip_create' %}">Create New</a>
+{% endblock %}
 
 {% block content %}
 {% if trip_list %}

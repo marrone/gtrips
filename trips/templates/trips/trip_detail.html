@@ -3,7 +3,7 @@
 {% block title %}{{ block.super }} | {{ trip.name }}{% endblock %}
 {% block contenttitle %}
     {{ trip.name }}
-    <a class="topcoat-button contenttitle-delete" href="{% url 'trips:trip_delete' trip.id %}">Delete</a>
+    <a class="topcoat-button contenttitle-action" href="{% url 'trips:trip_delete' trip.id %}">Delete</a>
 {% endblock %}
 
 {% block content %}
