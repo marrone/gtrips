@@ -17,6 +17,11 @@ class IndexView(generic.ListView):
         return Trip.objects.order_by('name')[:5]
 
 
+class TripDetailView(generic.DetailView):
+    model = Trip
+    template_name = 'trips/trip_detail.html'
+
+
 class DeparturesView(generic.ListView):
     template_name = 'trips/departures.html'
     context_object_name = 'departure_list'

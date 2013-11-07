@@ -1,9 +1,3 @@
-body {
-  text-align: center;
-  max-width: 1024px;
-  margin: auto;
-}
-
 /* susy grids: http://susy.oddbird.net/guides/reference/ */
 $base-font-size: 10px;
 $total-columns: 10;
@@ -18,9 +12,27 @@ $media-layout: 10;
 $media-layout: 8 $bp-small-width;
 $media-layout: 10 lt-ie9;
 
+#wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  background: inherit;
+  position: relative;
+}
 
 #app {
   @include container;
+
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  background: inherit;
+  left: 0;
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+
+  text-align: left;
 
   #header {
     height: 150px;
@@ -33,9 +45,8 @@ $media-layout: 10 lt-ie9;
 
   #main {
     @include span-columns(8, 10);
-    text-align: center;
     @include box-shadow(4px 0px 4px -2px rgba(0,0,0,0.2));
-    min-height: 200px;
+    min-height: 580px;
     position: relative;
   }
 
@@ -48,7 +59,8 @@ $media-layout: 10 lt-ie9;
     clear: both;
     display: block;
     height: 80px;
-    @include box-shadow(inset 0 4px 4px rgba(0,0,0,0.2));
+    @include box-shadow(inset 0 4px 4px rgba(255,255,255,0.2));
+    background-color: #3B3E3E;
     text-align: left;
     padding: 10px;
   }
@@ -61,4 +73,17 @@ $media-layout: 10 lt-ie9;
     #sidebar { display: none; }
     #footer { font-size: 12px; }
   }
+}
+
+#app:before{
+  position: absolute;
+  content: '';
+  left: -4px;
+  height: 100%;
+  width: 4px;
+  background: #3B3E3E;
+}
+#app.open {
+  transform: translate3d(250px, 0, 0);
+  -webkit-transform: translate3d(250px, 0, 0);
 }

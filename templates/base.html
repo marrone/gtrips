@@ -9,31 +9,50 @@
     <title>{% block title %}Home{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'build/css/app.css' %}">
     {% block css %}{% endblock %}
-<!--[if IE]><link refl="stylesheet" href="{% static 'build/css/ie.css' %}"/><![endif]-->
+    <!--[if IE]><link refl="stylesheet" href="{% static 'build/css/ie.css' %}"/><![endif]-->
     <script type="text/javascript" src="{% static 'build/js/modernizr.custom.js' %}"></script>
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
-<body>
+<body class="light">
+<div class="wrapper" class="max-width">
 
 <section id="app">
     <header id="header">
-        <h1>Trip Admin</h1>
-        <nav id="nav">{% block nav %}{% endblock %}</nav>
+        <div class="max-width">
+            <hgroup>
+                <h1>Trip Admin</h1>
+            </hgroup>
+            <nav id="nav">{% block nav %}{% endblock %}</nav>
+        </div>
     </header>
 
-    <section id="main">
-        {% block content %}{% endblock %}
-    </section>
-    <aside id="sidebar">
-        {% block sidebar %}
-        <p>Sidebar - 300px wide</p>
-        {% endblock %}
-    </aside>
+    <div id='content' class='max-width'>
+        <section id="main">
+            {% block content %}{% endblock %}
+        </section>
+
+        <div id="sidebar">
+            <nav id="pageNav">
+                {% block sidebarnav %}
+                <ul>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+                {% endblock %}
+            </nav>
+            {% block sidebarcontent %}
+            {% endblock %}
+        </div>
+    </div>
 
     <footer id="footer">
-        {% block footer %}{% endblock %}
+        <div class="max-width"
+            {% block footer %}{% endblock %}
+        </div>
     </footer>
 </section>
+
+</div>
 
 <div id="modal-container"></div>
 <div class="md-overlay"></div>

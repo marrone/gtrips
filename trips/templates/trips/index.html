@@ -15,9 +15,21 @@
     <tbody>
     {% for trip in trip_list %}
         <tr>
-            <td>{{ trip.name }}</td>
+            <td><a href="{% url 'trips:trip_detail' trip.id %}">{{ trip.name }}</a></td>
             <td>{{ trip.tripdeparture_set.count }}</td>
-            <td>View, Edit, Delete</td>    
+            <td>
+                <div class="topcoat-button-bar">
+                    <div class="topcoat-button-bar__item">
+                        <a class="topcoat-button-bar__button" href="{% url 'trips:trip_detail' trip.id %}">View</a>
+                    </div>
+                    <div class="topcoat-button-bar__item">
+                        <a class="topcoat-button-bar__button" href="#">Edit</a>
+                    </div>
+                    <div class="topcoat-button-bar__item">
+                        <a class="topcoat-button-bar__button" href="#">Delete</a>
+                    </div>
+                </div>
+            </td>
         </tr>
     {% endfor %}
     </tbody>

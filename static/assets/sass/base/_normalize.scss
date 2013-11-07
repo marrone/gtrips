@@ -15,6 +15,12 @@
   font-weight: 600;
 }
 
+html,body{
+  margin:0;
+  padding:0;
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -22,7 +28,10 @@ body {
   color: #000;
   font: 16px "Source Sans", helvetica, arial, sans-serif;
   font-weight: 400;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
 }
+
 
 :focus {
   outline-color: transparent;
@@ -31,3 +40,7 @@ body {
 
 strong { font-weight: bold; }
 
+
+h1 {
+  font-weight: 600;
+}

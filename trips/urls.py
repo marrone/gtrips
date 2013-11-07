@@ -6,7 +6,7 @@ urlpatterns = patterns("",
     # /trips/
     url(r'^$', views.IndexView.as_view(), name='index'),
     # /trips/5/
-    #url(r'^(?P<pk>\d+)/$', views.TripDetailView.as_view(), name='tripdetail'),
+    url(r'^(?P<pk>\d+)/$', views.TripDetailView.as_view(), name='trip_detail'),
     # /departures/
     url(r'^departures/$', views.DeparturesView.as_view(), name='departures'),
     # /trips/5/departures/
