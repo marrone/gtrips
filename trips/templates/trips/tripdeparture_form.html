@@ -18,7 +18,12 @@
 </div>
 <div class="formfield">
     <label for="id_start_date">Start Date:</label>
-    <input type='text' id="id_start_date" class="topcoat-text-input--large {% if form.start_date.errors %}invalid{% endif %}" name="{{ form.start_date.html_name }}" value="{{ form.start_date.value|default:"" }}" placeholder="dd/mm/yy"/>
+    <input type='text' id="id_start_date" class="topcoat-text-input--large date-picker {% if form.start_date.errors %}invalid{% endif %}" name="{{ form.start_date.html_name }}" value="{{ form.start_date.value|default:"" }}" placeholder="dd/mm/yy"/>
+    {% if form.start_date.errors %}
+    <div class="topcoat-notification">
+        {{ form.start_date.errors }}
+    </div>
+    {% endif %}
 
     {% if trip and trip.id %}
         <input type="hidden" name="{{ form.id.html_name }}" value="{{ form.id.value }}"/>

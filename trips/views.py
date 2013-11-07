@@ -42,6 +42,9 @@ class DepartureCreateView(generic.edit.CreateView):
     form_class = TripDepartureForm
     model = TripDeparture
 
+    def get_success_url(self):
+        return reverse_lazy("trips:trip_detail", args=(self.object.trip.id,))
+
 
 class DepartureDetailView(generic.DetailView):
     model = TripDeparture

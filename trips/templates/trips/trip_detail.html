@@ -11,6 +11,21 @@
 {% if trip.tripdeparture_set.all %}
     {% include "trips/partials/departure_list.html" with departure_list=trip.tripdeparture_set.all hide_trip=True only %}
 {% else %}
-    <p>This trip has no departures yet. Try <a href="{% url 'trips:departure_create' trip.id %}">creating one</a> now.</p>
+    <p>This trip has no departures yet.</p>
 {% endif %}
+
+<form method="post" action="{% url 'trips:departure_create' %}">
+{% csrf_token %}
+<div class="formfield">
+    <input type='text' 
+        id="id_start_date" 
+        class="topcoat-text-input--large date-picker {% if form.start_date.errors %}invalid{% endif %}" 
+        name="start_date"
+        value="{{ form.start_date.value|default:"" }}" 
+        placeholder="dd/mm/yy"/>
+
+    <input type="hidden" name="trip" value="{{ trip.id }}"/>
+    <button class="topcoat-button--large--cta" type="submit">Create Departure</button>
+</div>
+</form>
 {% endblock content %}
