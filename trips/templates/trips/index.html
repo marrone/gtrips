@@ -1,13 +1,14 @@
 {% extends "base_trips.html" %}
 
 {% block title %}{{ block.super }} | Trips{% endblock %}
+{% block contenttitle %}Trips{% endblock %}
 
 {% block content %}
 {% if trip_list %}
     <table class='trips'>
     <thead>
         <tr>
-            <th>Name</th>
+            <th>Name <input type="search" name="q" value="" placeholder="search" class="topcoat-search-input"/></th>
             <th># Departures</th>
             <th></th>
         </tr>
@@ -23,10 +24,10 @@
                         <a class="topcoat-button-bar__button" href="{% url 'trips:trip_detail' trip.id %}">View</a>
                     </div>
                     <div class="topcoat-button-bar__item">
-                        <a class="topcoat-button-bar__button" href="#">Edit</a>
+                        <a class="topcoat-button-bar__button" href="">Edit</a>
                     </div>
                     <div class="topcoat-button-bar__item">
-                        <a class="topcoat-button-bar__button" href="#">Delete</a>
+                        <a class="topcoat-button-bar__button" href="{% url 'trips:trip_delete' trip.id %}">Delete</a>
                     </div>
                 </div>
             </td>
