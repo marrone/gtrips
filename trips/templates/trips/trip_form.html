@@ -1,0 +1,32 @@
+{% extends "base_trips.html" %}
+
+{% block title %}
+    {{ block.super }} | 
+    {% if trip %}Edit {{ trip.name }}{% else %}New{% endif %}
+{% endblock %}
+{% block contenttitle %}
+    {% if trip %}Edit {{ trip.name }}{% else %}New Trip{% endif %}
+{% endblock %}
+
+{% block content %}
+<form method="post" action="{% url 'trips:trip_create' %}">
+{% csrf_token %}
+{{ form.non_field_errors }}
+<div>
+    <label for="id_name">Name:</label>
+    <input type='text' id="id_name" class="topcoat-text-input--large {% if form.name.errors %}invalid{% endif %}" name="{{ form.name.html_name }}" value="{{ form.name.value|default:"" }}" />
+
+    {% if trip and trip.id %}
+        <input type="hidden" name="{{ form.id.html_name }}" value="{{ form.id.value }}"/>
+    {% endif %}
+    <button class="topcoat-button--large--cta" type="submit">
+        {% if trip and trip.id %} Update {% else %} Create {% endif %}
+    </button>
+    {% if form.name.errors %}
+    <div class="topcoat-notification">
+        {{ form.name.errors }}
+    </div>
+    {% endif %}
+</div>
+</form>
+{% endblock content %}

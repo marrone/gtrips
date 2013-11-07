@@ -7,10 +7,15 @@ urlpatterns = patterns("",
     url(r'^$', views.IndexView.as_view(), name='index'),
     # /trips/5/
     url(r'^(?P<pk>\d+)/$', views.TripDetailView.as_view(), name='trip_detail'),
+    # /trips/create/, delete
+    url(r'^create/$', views.TripCreateView.as_view(), name='trip_create'),
+    url(r'^(?P<pk>\d+)/delete/$', views.TripDeleteView.as_view(), name='trip_delete'),
     # /departures/
     url(r'^departures/$', views.DeparturesView.as_view(), name='departures'),
-    # /trips/5/departures/
-    #url(r'^(?P<pk>\d+)/departures/$', views.DeparturesView.as_view(), name='tripdepartures'),
-    # /trips/create/
-    #url(r'^create/$', views.create_trip, name='vote'),
+    # /departures/5/
+    url(r'^departures/(?P<pk>\d+)/$', views.DepartureDetailView.as_view(), name='departure_detail'),
+    # departures/create/, delete
+    url(r'^departures/create/$', views.DepartureCreateView.as_view(), name='departure_create'),
+    url(r'^(?P<trip>\d+)/departures/create/$', views.DepartureCreateView.as_view(), name='departure_create'),
+    url(r'^departures/(?P<pk>\d+)/delete$', views.DepartureDeleteView.as_view(), name='departure_delete'),
 )
