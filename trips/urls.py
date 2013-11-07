@@ -9,6 +9,7 @@ urlpatterns = patterns("",
     url(r'^(?P<pk>\d+)/$', views.TripDetailView.as_view(), name='trip_detail'),
     # /trips/create/, delete
     url(r'^create/$', views.TripCreateView.as_view(), name='trip_create'),
+    url(r'^(?P<pk>\d+)/edit/$', views.TripUpdateView.as_view(), name='trip_update'),
     url(r'^(?P<pk>\d+)/delete/$', views.TripDeleteView.as_view(), name='trip_delete'),
     # /departures/
     url(r'^departures/$', views.DeparturesView.as_view(), name='departures'),
