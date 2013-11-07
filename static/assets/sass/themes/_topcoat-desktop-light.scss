@@ -3009,7 +3009,8 @@ input[type="search"]::-webkit-search-cancel-button {
   color: #454545;
 }
 
-.topcoat-text-input:invalid {
+.topcoat-text-input:invalid,
+.topcoat-text-input.invalid {
   border: 1px solid #ec514e;
 }
 
@@ -3058,7 +3059,8 @@ input[type="search"]::-webkit-search-cancel-button {
   color: #454545;
 }
 
-.topcoat-text-input--large:invalid {
+.topcoat-text-input--large:invalid,
+.topcoat-text-input--large.invalid {
   border: 1px solid #ec514e;
 }
 
