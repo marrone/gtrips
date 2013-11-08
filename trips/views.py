@@ -48,7 +48,7 @@ class IndexView(generic.ListView):
     paginate_by = 10
 
     def _get_search_query(self):
-        return self.request.GET.get("q","")
+        return self.kwargs.has_key("q") and self.kwargs.get("q") or self.request.GET.get("q","")
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)

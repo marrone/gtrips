@@ -10,14 +10,17 @@
 
 {% if is_paginated %}
     {% load trips_filters %}
+    {% if url_name and not url_value %}
+        {% url url_name as url_value %}
+    {% endif %}
     <div class="pagination">
         <span class="page-links">
             {% if page_obj.has_previous %}
-                <a class="topcoat-button" href="{% url url_name page_obj.previous_page_number %}">&laquo; prev</a>
+                <a class="topcoat-button" href="{{ url_valeu }}?page={{ page_obj.previous_page_number }}">&laquo; prev</a>
             {% endif %}
             <span class="page-current">
                 Page 
-                <form method="get" action="{% url url_name %}" class="compactform">
+                <form method="get" action="{{ url_value }}" class="compactform">
                     <select class="page-jumpto" size="1">
                     {% for page_num in page_obj.paginator.num_pages|get_range %}
                         <option {% if page_num|add:"1" == page_obj.number %}selected="selected" {% endif %}value="{{ page_num|add:'1' }}">{{ page_num|add:"1" }}</option>
@@ -28,7 +31,7 @@
                 </form>
             </span>
             {% if page_obj.has_next %}
-                <a class="topcoat-button" href="{% url url_name page_obj.next_page_number %}">next &raquo;</a>
+                <a class="topcoat-button" href="{{ url_value }}?page={{ page_obj.next_page_number }}">next &raquo;</a>
             {% endif %}
         </span>
     </div>

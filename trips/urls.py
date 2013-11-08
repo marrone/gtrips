@@ -6,6 +6,7 @@ urlpatterns = patterns("",
     # /trips/ list, optionally paged
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^page/(?P<page>\d+)/$', views.IndexView.as_view(), name='index'),
+    url(r'^q/(?P<q>.+)/$', views.IndexView.as_view(), name='index_search'),
     # /trips crud
     url(r'^(?P<pk>\d+)/$', views.TripDetailView.as_view(), name='trip_detail'),
     url(r'^create/$', views.TripCreateView.as_view(), name='trip_create'),

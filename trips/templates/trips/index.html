@@ -47,7 +47,12 @@
     </tbody>
     </table>
 
-    {% include "trips/partials/pagination_links.html" with page_obj=page_obj url_name='trips:index' is_paginated=is_paginated only %}
+    {% if search_term %}
+        {% url 'trips:index_search' q=search_term as the_url %}
+        {% include "trips/partials/pagination_links.html" with page_obj=page_obj url_value=the_url is_paginated=is_paginated only %}
+    {% else %}
+        {% include "trips/partials/pagination_links.html" with page_obj=page_obj url_name='trips:index' is_paginated=is_paginated only %}
+    {% endif %}
 
 {% elif search_term %}
     <p>No trips exist for that search term. 
