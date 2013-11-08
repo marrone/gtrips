@@ -21,9 +21,9 @@ from django.conf import global_settings
 SECRET_KEY = 'r-66h=$*k5t1jm^9#*%xld)4^s!bsm)4a*(sfxp7!xi9cz#g0h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
