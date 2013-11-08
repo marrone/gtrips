@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
-# Create your models here.
 
 class Trip(models.Model):
     name = models.CharField(db_index=True, max_length=200) # indexed for basic text searching
@@ -11,6 +10,7 @@ class Trip(models.Model):
 
     def get_absolute_url(self):
         return reverse('trips:trip_detail', kwargs={'pk': self.pk})
+
 
 class TripDeparture(models.Model):
     trip = models.ForeignKey(Trip)
