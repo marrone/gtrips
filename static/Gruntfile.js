@@ -29,27 +29,9 @@ module.exports = function(grunt) {
                 files: {
                     'build/js/app.min.js': [
                         "assets/js/lib/jquery.min.js",
+                        "assets/js/lib/jquery-ui-1.10.3.custom.min.js",
+                        "assets/js/lib/jquery.dateFormat-1.0.js",
                         "assets/js/lib/underscore-min.js",
-                        "assets/js/lib/backbone-min.js",
-                        "assets/js/lib/backbone.localStorage.js",
-                        "assets/js/lib/es5-shim.min.js",
-                        "assets/js/lib/es5-sham.min.js",
-                        "assets/js/lib/react.min.js",
-                        "assets/js/lib/react.backbone.js",
-                        "assets/js/widgets/clock.js",
-                        "assets/js/widgets/canvasWriter.js",
-                        "assets/js/models/card.js",
-                        "assets/js/models/game.js",
-                        "assets/js/models/playerGame.js",
-                        "assets/js/collections/cards.js",
-                        "assets/js/collections/playerGames.js",
-                        "assets/js/views/clock.js",
-                        "assets/js/views/gameStatus.js",
-                        "assets/js/views/nav.js",
-                        "assets/js/views/card.js",
-                        "assets/js/views/cards.js",
-                        "assets/js/views/topScore.js",
-                        "assets/js/views/topScoreModal.js",
                         "assets/js/app.js"
                     ]
                 }
@@ -97,17 +79,9 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            html: {
-                files: ['index.html'],
-                tasks: ['htmlhint']
-            },
             js: {
                 files: ['assets/js/**/*.js'],
                 tasks: ['uglify']
-            },
-            jsx: {
-                files: ['assets/jsx/**/*.jsx'],
-                tasks: ['react']
             },
             css: {
                 files: ['assets/sass/**/*.scss'],
