@@ -10,4 +10,5 @@ $(function() {
             window.location = this.form.action + "?page=" + pageNum;
         }
     });
+
 });
