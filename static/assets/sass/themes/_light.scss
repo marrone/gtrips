@@ -118,6 +118,9 @@ body.dark #main header:before {
 #pageNav li {
   border-bottom: 1px solid #58595A;
 }
+#pageNav .selected {
+    color: #373435;
+}
 
 @media screen and (min-width: 650px) {
   #app.open {
@@ -178,6 +181,11 @@ body.dark #main header:before {
   body.light #sidebar li a {
     color: #797B7B;
   }
+  body.light #sidebar .selected {
+    color: #373435;
+    font-weight: bold;
+  }
+
   body.light #pageNav li {
     border-bottom: 1px solid #E0E0E0;
   }

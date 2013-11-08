@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
+{% load activelink %}
+
 {% block title %}Trip Admin{% endblock %}
 
-{% block nav %}
+{% block sidebarnav %}
 <ul>
-    <li><a href="{% url 'trips:index' %}">Trips</a></li>
-    <li><a href="{% url 'trips:departures' %}">Departures</a></li>
+    <li><a href="{% url 'trips:index' %}" 
+        class="{% ifstartswith 'trips:departures' %}{% else %}{% ifstartswith 'trips:index' %}selected{% endifstartswith %}{% endifstartswith %}">Trips</a></li>
+    <li><a href="{% url 'trips:departures' %}" 
+        class="{% ifstartswith 'trips:departures' %}selected{% endifstartswith %}">Departures</a></li>
+    <li><a href="/admin">Admin</a></li>
 </ul>
 {% endblock %}
