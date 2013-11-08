@@ -8,3 +8,7 @@ node_modules
 
 # CTags
 tags
+
+venv
+*.pyc
+staticfiles
