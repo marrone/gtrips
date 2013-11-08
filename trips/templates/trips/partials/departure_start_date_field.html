@@ -1,3 +1,12 @@
+{% comment %} 
+/**
+ * Render a TripDeparture.start_date form field input
+ *
+ * @param errors The form field error list, if any
+ * @param start_date (DateTime) The start_date value
+ */
+{% endcomment %}.
+
 <input type='text' 
     id="id_start_date" 
     class="topcoat-text-input--large date-picker {% if errors %}invalid{% endif %}" 

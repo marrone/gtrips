@@ -38,6 +38,9 @@
     {% endfor %}
     </tbody>
     </table>
+
+    {% include "trips/partials/pagination_links.html" with page_obj=page_obj url_name='trips:index' is_paginated=is_paginated only %}
+
 {% else %}
     <p>No trips exist. Try <a href="{% url 'trips:trip_create' %}">creating one</a> now.</p>
 {% endif %}

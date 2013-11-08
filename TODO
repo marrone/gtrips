@@ -1,5 +1,6 @@
 - Internationalization
     - see: https://docs.djangoproject.com/en/1.6/topics/i18n/
+- ajaxified forms
 - Query indexes
 - cleanup static assets
 - active state on nav links
@@ -9,7 +10,3 @@
 - sortable departures
     - date, trip name
 - filtering departures
-
-Trips
-    - create
-    - update

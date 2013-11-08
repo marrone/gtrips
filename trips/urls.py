@@ -5,6 +5,7 @@ from trips import views
 urlpatterns = patterns("",
     # /trips/
     url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^page/(?P<page>\d+)/$', views.IndexView.as_view(), name='index'),
     # /trips/5/
     url(r'^(?P<pk>\d+)/$', views.TripDetailView.as_view(), name='trip_detail'),
     # /trips/create/, delete
@@ -13,6 +14,7 @@ urlpatterns = patterns("",
     url(r'^(?P<pk>\d+)/delete/$', views.TripDeleteView.as_view(), name='trip_delete'),
     # /departures/
     url(r'^departures/$', views.DeparturesView.as_view(), name='departures'),
+    url(r'^departures/page/(?P<page>\d+)/$', views.DeparturesView.as_view(), name='departures'),
     # /departures/5/
     url(r'^departures/(?P<pk>\d+)/$', views.DepartureDetailView.as_view(), name='departure_detail'),
     # departures/create/, delete

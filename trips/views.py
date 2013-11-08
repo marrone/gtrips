@@ -44,12 +44,13 @@ class AjaxableResponseMixin(object):
 class IndexView(generic.ListView):
     template_name = 'trips/index.html'
     context_object_name = 'trip_list'
+    paginate_by = 10
 
     def get_queryset(self):
         """
         Return a paginated list of existing trips
         """
-        return Trip.objects.order_by('name')[:5]
+        return Trip.objects.order_by('name')[:10]
 
 
 class TripDetailView(generic.DetailView):
@@ -106,9 +107,10 @@ class DepartureDeleteView(AjaxableResponseMixin, generic.edit.DeleteView):
 class DeparturesView(generic.ListView):
     template_name = 'trips/departures.html'
     context_object_name = 'departure_list'
+    paginate_by = 10
 
     def get_queryset(self):
         """
         Return a paginated list of existing trips departures
         """
-        return TripDeparture.objects.order_by('-start_date')[:5]
+        return TripDeparture.objects.order_by('-start_date')

@@ -6,6 +6,7 @@
 {% block content %}
 {% if departure_list %}
     {% include "trips/partials/departure_list.html" with departure_list=departure_list hide_trip=False only %}
+    {% include "trips/partials/pagination_links.html" with page_obj=page_obj url_name='trips:departures' is_paginated=is_paginated only %}
 {% else %}
     <p>No departures exist. Try <a href="{% url 'trips:departure_create' %}">creating one</a> now.</p>
 {% endif %}
