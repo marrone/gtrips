@@ -3,7 +3,6 @@
 - Tests
 - ajaxified forms
 - Query indexes
-- cleanup static assets
 - sortable trips
     - name, num departures
 - searchable trips by name
