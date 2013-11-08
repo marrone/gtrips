@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 # Create your models here.
 
 class Trip(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(db_index=True, max_length=200) # indexed for basic text searching
 
     def __unicode__(self):
         return self.name
@@ -14,7 +14,7 @@ class Trip(models.Model):
 
 class TripDeparture(models.Model):
     trip = models.ForeignKey(Trip)
-    start_date = models.DateTimeField()
+    start_date = models.DateTimeField(db_index=True) # indexed since queryset is ordered by date
 
     class Meta:
         ordering = ['start_date']
