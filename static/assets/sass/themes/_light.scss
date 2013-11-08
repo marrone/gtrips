@@ -197,6 +197,13 @@ body.dark #main header:before {
     padding: 22px 0 0 10px;
     text-decoration: none;
   }
+  #sidebar .subnav a {
+      padding: 0 0 0 26px;
+      height: 38px;
+  }
+  #sidebar .subnav a:before {
+      content: '↳';
+  }
   #main header h2 {
     font-size: 28px;
   }

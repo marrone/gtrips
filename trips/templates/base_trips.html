@@ -7,9 +7,21 @@
 {% block sidebarnav %}
 <ul>
     <li><a href="{% url 'trips:index' %}" 
-        class="{% ifstartswith 'trips:departures' %}{% else %}{% ifstartswith 'trips:index' %}selected{% endifstartswith %}{% endifstartswith %}">Trips</a></li>
+        class="{% ifstartswith 'trips:departures' %}{% else %}{% ifstartswith 'trips:index' %}selected{% endifstartswith %}{% endifstartswith %}">Trips</a>
+        <ul class="subnav">
+            <li>
+                <a href="{% url 'trips:trip_create' %}" class="{% ifstartswith 'trips:trip_create' %}selected{% endifstartswith %}">Create</a>
+            </li>
+        </ul> 
+    </li>
     <li><a href="{% url 'trips:departures' %}" 
-        class="{% ifstartswith 'trips:departures' %}selected{% endifstartswith %}">Departures</a></li>
+        class="{% ifstartswith 'trips:departures' %}selected{% endifstartswith %}">Departures</a>
+        <ul class="subnav">
+            <li>
+                <a href="{% url 'trips:departure_create' %}" class="{% ifstartswith 'trips:departure_create' %}selected{% endifstartswith %}">Create</a>
+            </li>
+        </ul>
+    </li>
     <li><a href="/admin">Admin</a></li>
 </ul>
 {% endblock %}
