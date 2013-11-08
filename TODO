@@ -3,9 +3,3 @@
 - Tests
 - ajaxified forms
 - Query indexes
-- sortable trips
-    - name, num departures
-- searchable trips by name
-- sortable departures
-    - date, trip name
-- filtering departures

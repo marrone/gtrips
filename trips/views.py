@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils import timezone
 from django.views import generic
+from django.db.models import Q
 
 from trips.models import Trip, TripDeparture
 from trips.forms import TripForm, TripDepartureForm
@@ -46,11 +47,22 @@ class IndexView(generic.ListView):
     context_object_name = 'trip_list'
     paginate_by = 10
 
+    def _get_search_query(self):
+        return self.request.GET.get("q","")
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['search_term'] = self._get_search_query()
+        return context
+
     def get_queryset(self):
         """
         Return a paginated list of existing trips
         """
-        return Trip.objects.order_by('name')[:10]
+        search = self._get_search_query()
+        queryset = Trip.objects
+        if search: queryset = queryset.filter(Q(name__icontains=search))
+        return queryset.order_by('name')
 
 
 class TripDetailView(generic.DetailView):
