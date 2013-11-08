@@ -27,7 +27,7 @@
                         <a class="topcoat-button-bar__button" href="{% url 'trips:trip_detail' trip.id %}">View</a>
                     </div>
                     <div class="topcoat-button-bar__item">
-                        <a class="topcoat-button-bar__button" href="">Edit</a>
+                        <a class="topcoat-button-bar__button" href="{% url 'trips:trip_update' trip.id %}">Edit</a>
                     </div>
                     <div class="topcoat-button-bar__item">
                         <a class="topcoat-button-bar__button" href="{% url 'trips:trip_delete' trip.id %}">Delete</a>
